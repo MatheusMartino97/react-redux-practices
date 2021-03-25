@@ -1,10 +1,14 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
   render() {
-    return(
-      <Link></Link>
-    )
+    return (
+      <div>
+        <Link to="/login">Login</Link>
+      </div>
+    );
   }
 }
+
+export default Home;
