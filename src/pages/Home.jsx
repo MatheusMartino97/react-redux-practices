@@ -1,16 +1,16 @@
-import React from 'react'
-import Products from '../components/Products'
-import Cart from '../components/Cart'
+import React from 'react';
+import Products from '../components/Products';
+import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
   render() {
-    return(
+    return (
       <div>
-      <Products />
-      <Cart />
+        <Products />
+        <Link to="/cart">Carrinho</Link>
       </div>
-    )
+    );
   }
 }
 
-export default Home
+export default Home;
