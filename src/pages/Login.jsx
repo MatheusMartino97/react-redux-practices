@@ -58,7 +58,9 @@ class Login extends Component {
   }
 
   returnRedirect() {
-    return this.state.shouldRedirect === true ? <Redirect to={this.state.redirectTo} /> : null;
+    return this.state.shouldRedirect === true ? (
+      <Redirect to={this.state.redirectTo} />
+    ) : null;
   }
 
   render() {

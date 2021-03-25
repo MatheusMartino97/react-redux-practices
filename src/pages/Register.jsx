@@ -30,12 +30,22 @@ class Register extends Component {
         <div className="inputs" onChange={this.handleChange}>
           <label htmlFor="email">
             Email:
-            <input type="text" placeholder="Digite seu email" id="email" value={ email } />
+            <input
+              type="text"
+              placeholder="Digite seu email"
+              id="email"
+              value={email}
+            />
           </label>
           <br />
           <label htmlFor="password">
             Senha:
-            <input type="password" placeholder="Digite sua senha" id="password" value={ password } />
+            <input
+              type="password"
+              placeholder="Digite sua senha"
+              id="password"
+              value={password}
+            />
           </label>
           <br />
           <button
@@ -45,15 +55,15 @@ class Register extends Component {
 
               this.setState({
                 email: '',
-                password: ''
-              })
+                password: '',
+              });
             }}
           >
             Cadastrar
           </button>
         </div>
         <Link to="/">Home</Link>
-        <br/>
+        <br />
         <Link to="/login">Login</Link>
       </div>
     );

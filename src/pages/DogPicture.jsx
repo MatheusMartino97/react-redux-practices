@@ -1,48 +1,50 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class DogPicture extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       dogPictureURL: '',
-      isLoading: false
-    }
+      isLoading: false,
+    };
   }
 
   componentDidMount() {
-    this.fetchRandomDogPicture()
+    this.fetchRandomDogPicture();
   }
 
   async fetchRandomDogPicture() {
     this.setState({
-      isLoading: true
-    })
+      isLoading: true,
+    });
 
-    const endPoint = "https://dog.ceo/api/breeds/image/random"    
-    const request = await fetch(endPoint)
-    const response = await request.json()
-    const dogPictureURL = response.message
+    const endPoint = 'https://dog.ceo/api/breeds/image/random';
+    const request = await fetch(endPoint);
+    const response = await request.json();
+    const dogPictureURL = response.message;
 
     this.setState({
       dogPictureURL,
-      isLoading: false
-    })
+      isLoading: false,
+    });
   }
 
   render() {
-    return(
+    return (
       <div>
         <h1>Login feito com Sucesso!!!</h1>
-        {
-          this.state.isLoading === true ? <h2>Carregando...</h2> : <img src={this.state.dogPictureURL} alt=""/>
-        }
-        <br/>
+        {this.state.isLoading === true ? (
+          <h2>Carregando...</h2>
+        ) : (
+          <img src={this.state.dogPictureURL} alt="" />
+        )}
+        <br />
         <Link to="/">Home</Link>
       </div>
-    )
+    );
   }
 }
 
-export default DogPicture
+export default DogPicture;
