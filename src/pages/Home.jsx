@@ -8,6 +8,8 @@ class Home extends Component {
         <Link to="/login">Login</Link>
         <br/>
         <Link to="/register">Cadastrar</Link>
+        <br/>
+        <Link to="/customers">Cadastros</Link>
       </div>
     );
   }

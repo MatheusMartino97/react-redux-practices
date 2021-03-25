@@ -23,19 +23,19 @@ class Register extends Component {
 
   render() {
     const { registerCustomer } = this.props;
-    const { email, password } = this.state
+    const { email, password } = this.state;
 
     return (
       <div>
         <div className="inputs" onChange={this.handleChange}>
           <label htmlFor="email">
             Email:
-            <input type="text" placeholder="Digite seu email" id="email" value={ this.state.email } />
+            <input type="text" placeholder="Digite seu email" id="email" value={ email } />
           </label>
           <br />
           <label htmlFor="password">
             Senha:
-            <input type="text" placeholder="Digite sua senha" id="password" value={ this.state.password } />
+            <input type="password" placeholder="Digite sua senha" id="password" value={ password } />
           </label>
           <br />
           <button
@@ -53,6 +53,8 @@ class Register extends Component {
           </button>
         </div>
         <Link to="/">Home</Link>
+        <br/>
+        <Link to="/login">Login</Link>
       </div>
     );
   }
