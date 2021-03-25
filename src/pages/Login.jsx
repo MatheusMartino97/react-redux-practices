@@ -73,7 +73,7 @@ class Login extends Component {
           <label htmlFor="email">
             Email:
             <input
-              type="text"
+              type="email"
               placeholder="Digite seu email"
               id="email"
               value={email}
