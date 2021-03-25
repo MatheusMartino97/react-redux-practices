@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 class RegisteredCustomers extends Component {
   render() {
     const { customersList } = this.props;
-
-    return (
-      <div>
-        <div id="customers-list">
-          <ul>
-            {customersList.map((customer, index) => {
-              return (
+    const customersListElement = () => {
+      return (
+        <ul>
+          {customersList.map((customer, index) => {
+            return (
+              <div>
+                <h1>Usuários cadastrados:</h1>
                 <li key={index}>
                   <p>
                     Usuário: <em>{customer.email}</em>
@@ -20,9 +20,21 @@ class RegisteredCustomers extends Component {
                     Senha: <em>{customer.password}</em>
                   </p>
                 </li>
-              );
-            })}
-          </ul>
+              </div>
+            );
+          })}
+        </ul>
+      );
+    };
+
+    return (
+      <div>
+        <div id="customers-list">
+          {customersList.length === 0 ? (
+            <h1>Nenhum cadastro encontrado</h1>
+          ) : (
+            customersListElement()
+          )}
         </div>
         <Link to="/">Home</Link>
       </div>

@@ -9,6 +9,8 @@ class FailToLogin extends Component {
         <Link to="/">Home</Link>
         <br/>
         <Link to="/login">Tentar novamente</Link>
+        <br/>
+        <Link to="/register">Cadastre-se</Link>
       </div>
     )
   }
