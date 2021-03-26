@@ -9,6 +9,8 @@ class DogPicture extends Component {
       dogPictureURL: '',
       isLoading: false,
     };
+
+    this.fetchRandomDogPicture = this.fetchRandomDogPicture.bind(this)
   }
 
   componentDidMount() {
@@ -59,6 +61,8 @@ class DogPicture extends Component {
             />
           )}
         </div>
+        <button onClick={this.fetchRandomDogPicture}>Buscar outra foto</button>
+        <br/>
         <Link to="/">Home</Link>
         <br />
         <Link to="/login">Entrar com outra conta</Link>
