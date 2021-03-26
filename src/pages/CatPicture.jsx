@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class DogPicture extends Component {
+class CatPicture extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      dogPictureURL: '',
+      catPictureURL: '',
       isLoading: false,
     };
   }
@@ -20,13 +20,13 @@ class DogPicture extends Component {
       isLoading: true,
     });
 
-    const endPoint = 'https://dog.ceo/api/breeds/image/random';
+    const endPoint = 'https://aws.random.cat/meow';
     const request = await fetch(endPoint);
     const response = await request.json();
-    const dogPictureURL = response.message;
+    const catPictureURL = response.file;
 
     this.setState({
-      dogPictureURL,
+      catPictureURL,
       isLoading: false,
     });
   }
@@ -42,20 +42,20 @@ class DogPicture extends Component {
     return (
       <div>
         <h1>Login feito com Sucesso!!!</h1>
-        <div>
+        <div style={divStyle}>
           {this.state.isLoading === true ? (
             <img
               width="500px"
               height="500px"
-              src="https://img.cloudygif.com/small/754f4958462ec465.gif"
-              alt="dog"
+              src="https://i.pinimg.com/originals/97/e9/42/97e942ce7fc4e9d4ea6d844a382f251f.gif"
+              alt="cat"
             />
           ) : (
             <img
               width="500px"
               height="500px"
-              src={this.state.dogPictureURL}
-              alt="dog"
+              src={this.state.catPictureURL}
+              alt="cat"
             />
           )}
         </div>
@@ -67,4 +67,4 @@ class DogPicture extends Component {
   }
 }
 
-export default DogPicture;
+export default CatPicture;

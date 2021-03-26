@@ -10,6 +10,7 @@ class Register extends Component {
     this.state = {
       email: '',
       password: '',
+      animal: 'none',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -27,6 +28,7 @@ class Register extends Component {
 
     return (
       <div>
+        <h1>Cadastro</h1>
         <div className="inputs" onChange={this.handleChange}>
           <label htmlFor="email">
             Email:
@@ -48,15 +50,44 @@ class Register extends Component {
             />
           </label>
           <br />
+          <label htmlFor="animail">
+            Você prefere:
+            <select name="aminal-select" id="animal">
+              <option value="none">Opções</option>
+              <option value="dog">Cachorro</option>
+              <option value="cat">Gato</option>
+            </select>
+          </label>
+          <br />
           <button
             type="button"
             onClick={() => {
-              registerCustomer(this.state);
+              if (this.state.animal !== 'none') {
+                if (this.state.animal === 'cat') {
+                  const validateAnimal = window.confirm('Tem certeza que gosta de gatos?')
 
-              this.setState({
-                email: '',
-                password: '',
-              });
+                  if (validateAnimal === true) {
+                    registerCustomer(this.state);
+
+                    this.setState({
+                      email: '',
+                      password: '',
+                    });
+
+                    return
+                  }
+
+                  return
+                }
+                registerCustomer(this.state);
+
+                this.setState({
+                  email: '',
+                  password: '',
+                });
+              } else {
+                window.alert('Favor escolher um animal')
+              }
             }}
           >
             Cadastrar

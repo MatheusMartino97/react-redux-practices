@@ -38,8 +38,12 @@ class Login extends Component {
 
     if (customerWithThisEmail) {
       if (customerWithThisEmail.password === password) {
+        if (customerWithThisEmail.animal === 'cat') {
+          window.alert('Cachorros são melhores!')
+        }
+
         this.setState({
-          redirectTo: '/success',
+          redirectTo: `/${customerWithThisEmail.animal}`,
         });
       } else {
         this.setState({
@@ -69,6 +73,7 @@ class Login extends Component {
 
     return (
       <div>
+        <h1>Login</h1>
         <div id="inputs" onChange={this.handleChange}>
           <label htmlFor="email">
             Email:
@@ -100,6 +105,8 @@ class Login extends Component {
           </button>
         </div>
         <Link to="/">Home</Link>
+        <br/>
+        <Link to="/register">Cadastre-se</Link>
         {this.returnRedirect()}
       </div>
     );
