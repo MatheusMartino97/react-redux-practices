@@ -42,7 +42,7 @@ class DogPicture extends Component {
     return (
       <div>
         <h1>Login feito com Sucesso!!!</h1>
-        <div>
+        <div style={divStyle}>
           {this.state.isLoading === true ? (
             <img
               width="500px"
