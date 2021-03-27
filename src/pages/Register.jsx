@@ -95,8 +95,6 @@ class Register extends React.Component {
             Buscar resultados
           </button>
         </form>
-        <Link to="/results">Resultados</Link>
-        <br/>
         <Link to="/">Voltar para Home</Link>
         {this.state.shouldRedirect === true ? <Redirect to="/results"/> : null}
       </div>
