@@ -34,8 +34,6 @@ class Login extends Component {
       return customer.email === email;
     });
 
-    console.log(customerWithThisEmail);
-
     if (customerWithThisEmail) {
       if (customerWithThisEmail.password === password) {
         if (customerWithThisEmail.animal === 'cat') {

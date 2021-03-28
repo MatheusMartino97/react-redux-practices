@@ -14,6 +14,9 @@ class Register extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.validateUser = this.validateUser.bind(this)
+    this.validateChosenAnimal = this.validateChosenAnimal.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleChange(event) {
@@ -22,8 +25,62 @@ class Register extends Component {
     });
   }
 
-  render() {
+  validateUser(email, customersList) {
+    const customerWithThisEmail = customersList.find((customer) => {
+      return customer.email === email;
+    });
+
+    if (customerWithThisEmail) {
+      window.alert('Falha ao cadastrar: email já está sendo utilezado por outro usuário')
+
+      return false
+    }
+
+    return true
+  }
+
+  validateChosenAnimal() {
     const { registerCustomer } = this.props;
+    if (this.state.animal !== 'none') {
+      if (this.state.animal === 'cat') {
+        const validateAnimal = window.confirm(
+          'Tem certeza que gosta de gatos?'
+        );
+
+        if (validateAnimal === true) {
+          registerCustomer(this.state);
+
+          this.setState({
+            email: '',
+            password: '',
+          });
+
+          return;
+        }
+
+        return;
+      }
+      registerCustomer(this.state);
+
+      this.setState({
+        email: '',
+        password: '',
+      });
+    } else {
+      window.alert('Favor escolher um animal');
+    }
+  }
+
+  handleClick() {
+    const { email } = this.state
+    const { customersList } = this.props
+
+    if (this.validateUser(email, customersList) === true) {
+      this.validateChosenAnimal()
+    }
+  }
+
+  render() {
     const { email, password } = this.state;
 
     return (
@@ -59,37 +116,7 @@ class Register extends Component {
             </select>
           </label>
           <br />
-          <button
-            type="button"
-            onClick={() => {
-              if (this.state.animal !== 'none') {
-                if (this.state.animal === 'cat') {
-                  const validateAnimal = window.confirm('Tem certeza que gosta de gatos?')
-
-                  if (validateAnimal === true) {
-                    registerCustomer(this.state);
-
-                    this.setState({
-                      email: '',
-                      password: '',
-                    });
-
-                    return
-                  }
-
-                  return
-                }
-                registerCustomer(this.state);
-
-                this.setState({
-                  email: '',
-                  password: '',
-                });
-              } else {
-                window.alert('Favor escolher um animal')
-              }
-            }}
-          >
+          <button type="button" onClick={this.handleClick}>
             Cadastrar
           </button>
         </div>
@@ -101,6 +128,12 @@ class Register extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    customersList: state.registerReducer.customersList,
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     registerCustomer: (customerData) =>
@@ -108,4 +141,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
