@@ -12,6 +12,8 @@ body {
   background-image: url('https://webassets.job.com/home_hero_v2.webp');
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-x: hidden;
+  overflow-y: scroll;
   height: 90vh;
   padding: 0 20px;
 }
@@ -57,7 +59,7 @@ button {
 
 button,
 #entities-container div {
-  height: 50px;
+  height: 40px;
   background-color: rgba(207, 207, 207, 0.877);
   border: none;
   cursor: pointer;
