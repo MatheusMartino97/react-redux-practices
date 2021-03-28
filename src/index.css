@@ -51,6 +51,10 @@ form option {
   box-sizing: border-box;
 }
 
+button {
+  outline: none;
+}
+
 button,
 #entities-container div {
   height: 50px;
@@ -69,6 +73,11 @@ button,
   justify-content: center;
   align-items: center;
   margin: 10px 0;
+}
+
+#entities-container div.entity:hover {
+  color: rgb(207, 207, 207);
+  background-color: rgb(63, 63, 63);
 }
 
 button:hover {
@@ -106,9 +115,13 @@ a.nav-link {
 }
 
 a:hover {
-  color: rgba(240, 255, 240);
+  color: rgb(240, 255, 240);
   background-color: rgb(0, 36, 0);
   border-radius: 50%;
+}
+
+.entity {
+  background-color: rgb(190, 18, 18);
 }
 
 footer {

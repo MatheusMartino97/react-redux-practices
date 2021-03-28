@@ -12,9 +12,9 @@ class Entities extends React.Component {
         <div id="entities-container" onClick={this.searchEntity}>
           {entitiesList.map(({ NomeFantasia, RazaoSocial }) => {
             return (
+              
               <a
-                href={`https://www.google.com/search?q=${RazaoSocial}%20${workerInfo.city}`}
-                className="entity-link"
+                href={`https://www.google.com/search?q=${RazaoSocial}%20${workerInfo.city.toUpperCase()}`}
                 target="_blank"
                 rel="noreferrer"
               >
