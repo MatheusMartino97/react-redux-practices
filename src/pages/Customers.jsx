@@ -2,28 +2,30 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-class RegisteredCustomers extends Component {
+class Customers extends Component {
   render() {
     const { customersList } = this.props;
     const customersListElement = () => {
       return (
-        <ul>
-          {customersList.map((customer, index) => {
-            return (
-              <div>
-                <h1>Usuários cadastrados:</h1>
-                <li key={index}>
-                  <p>
-                    Usuário: <em>{customer.email}</em>
-                  </p>
-                  <p>
-                    Senha: <em>{customer.password}</em>
-                  </p>
-                </li>
-              </div>
-            );
-          })}
-        </ul>
+        <div>
+          <h1>Usuários encontrados:</h1>
+          <ul>
+            {customersList.map((customer, index) => {
+              return (
+                <div>
+                  <li key={index}>
+                    <p>
+                      Usuário: <em>{customer.email}</em>
+                    </p>
+                    <p>
+                      Senha: <em>{customer.password}</em>
+                    </p>
+                  </li>
+                </div>
+              );
+            })}
+          </ul>
+        </div>
       );
     };
 
@@ -48,4 +50,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(RegisteredCustomers);
+export default connect(mapStateToProps, null)(Customers);
