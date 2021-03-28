@@ -57,15 +57,19 @@ class Register extends React.Component {
   render() {
     return (
       <div>
-        <h1>Informações Pessoais</h1>
+        <h1>Registro</h1>
         <form action="" onChange={this.handleChange}>
+          <fieldset>
+            <legend>Informações pessoais</legend>
           <label htmlFor="city-input">
             Cidade:
+            <br/>
             <input type="text" name="city" id="city-input" />
           </label>
           <br />
           <label htmlFor="states-input">
             Estado:
+            <br/>
             <select name="stateShort" id="states-input">
               {states.map(({ value, name }) => {
                 return (
@@ -79,13 +83,17 @@ class Register extends React.Component {
           <br />
           <label htmlFor="job-input">
             Profissão:
+            <br/>
             <input type="text" name="job" id="job-input" />
           </label>
           <br />
           <label htmlFor="job-input">
             Entidade:
+            <br/>
             <input type="text" name="entity" id="entity-input" />
           </label>
+          </fieldset>
+
           <br />
           <button
             type="button"
@@ -97,7 +105,7 @@ class Register extends React.Component {
           </button>
         </form>
         <footer>
-          <Link to="/">Voltar para Home</Link>
+          <Link to="/" className="nav-link">Voltar para Home</Link>
         </footer>
         {this.state.shouldRedirect === true ? <Redirect to="/results" /> : null}
       </div>

@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,35 +12,63 @@ body {
   background-image: url('https://webassets.job.com/home_hero_v2.webp');
   background-repeat: no-repeat;
   background-size: cover;
-  overflow: hidden;
-  height: 100vh;
+  height: 90vh;
   padding: 0 20px;
 }
 
 h1,
 em {
   text-shadow: honeydew 5px 5px 10px;
+
+  color: rgb(0, 36, 0);
 }
 
 h1 {
   text-align: center;
-  color: rgb(63, 63, 63);
 }
 
 form {
   margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  background-color: honeydew;
+  padding: 20px;
+  box-shadow: rgb(97, 97, 97) 1px 1px 10px;
 }
 
-button {
+fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+form input,
+form select,
+form option {
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+#entities-container div {
   height: 50px;
   background-color: rgba(207, 207, 207, 0.877);
-  cursor: pointer;
   border: none;
+  cursor: pointer;
   font-weight: bold;
   color: rgb(63, 63, 63);
   text-shadow: rgb(97, 97, 97) 5px 5px 10px;
   box-shadow: rgb(97, 97, 97) 1px 1px 10px;
   transition: 0.5s;
+}
+
+#entities-container div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
 }
 
 button:hover {
@@ -63,10 +95,13 @@ button:hover {
 }
 
 a {
+  text-decoration-line: none;
+}
+
+a.nav-link {
   color: rgb(0, 36, 0);
   padding: 10px;
   background-color: rgba(240, 255, 240, 0.9);
-  text-decoration-line: none;
   transition: 0.5s;
 }
 
@@ -77,8 +112,15 @@ a:hover {
 }
 
 footer {
-  position: absolute;
-  bottom: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: honeydew;
+  box-shadow: rgb(97, 97, 97) 1px 1px 10px;
 }
 
 code {

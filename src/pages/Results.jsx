@@ -19,6 +19,10 @@ class Results extends React.Component {
   }
 
   async fetchEntities(selectedJob) {
+    this.setState({
+      isLoading: true,
+    });
+
     const { city, stateShort } = this.props.workerInfo;
     const { listEntities } = this.props;
 
@@ -29,6 +33,10 @@ class Results extends React.Component {
     const entitiesList = await request.json();
 
     listEntities(entitiesList);
+
+    this.setState({
+      isLoading: false,
+    });
   }
 
   handleClick(event) {
@@ -62,11 +70,11 @@ class Results extends React.Component {
           workerInfo={workerInfo}
           professionsList={professionsList}
           handleClick={this.handleClick}
-          isLoading={this.state.isLoading}
         />
+        <footer>
+          <Link to="/register" className="nav-link">Registro</Link>
+        </footer>
 
-        <Link to="/register">Registro</Link>
-        <br />
         {this.state.shoulRedirect ? (
           <Redirect to={`/entities/${this.state.selectedJob}`} />
         ) : null}
