@@ -11,6 +11,7 @@ class Results extends React.Component {
 
     this.state = {
       selectedJob: '',
+      isLoading: '',
       shoulRedirect: false,
     };
     this.fetchEntities = this.fetchEntities.bind(this);
@@ -61,6 +62,7 @@ class Results extends React.Component {
           workerInfo={workerInfo}
           professionsList={professionsList}
           handleClick={this.handleClick}
+          isLoading={this.state.isLoading}
         />
 
         <Link to="/register">Registro</Link>

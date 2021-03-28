@@ -5,6 +5,80 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('https://webassets.job.com/home_hero_v2.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  height: 100vh;
+  padding: 0 20px;
+}
+
+h1,
+em {
+  text-shadow: honeydew 5px 5px 10px;
+}
+
+h1 {
+  text-align: center;
+  color: rgb(63, 63, 63);
+}
+
+form {
+  margin: 20px 0;
+}
+
+button {
+  height: 50px;
+  background-color: rgba(207, 207, 207, 0.877);
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  color: rgb(63, 63, 63);
+  text-shadow: rgb(97, 97, 97) 5px 5px 10px;
+  box-shadow: rgb(97, 97, 97) 1px 1px 10px;
+  transition: 0.5s;
+}
+
+button:hover {
+  color: rgba(207, 207, 207, 0.877);
+  background-color: rgb(63, 63, 63);
+  border-radius: 50%;
+}
+
+#job-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 20px 0;
+  justify-content: space-between;
+}
+
+#job-container div {
+  flex-grow: 1;
+  margin: 1px;
+}
+
+#job-container button {
+  width: 100%;
+}
+
+a {
+  color: rgb(0, 36, 0);
+  padding: 10px;
+  background-color: rgba(240, 255, 240, 0.9);
+  text-decoration-line: none;
+  transition: 0.5s;
+}
+
+a:hover {
+  color: rgba(240, 255, 240);
+  background-color: rgb(0, 36, 0);
+  border-radius: 50%;
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
 }
 
 code {

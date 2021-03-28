@@ -11,6 +11,7 @@ class Register extends React.Component {
 
     this.state = {
       shouldRedirect: '',
+      isLoading: '',
       city: '',
       entity: '',
       job: '',
@@ -95,8 +96,10 @@ class Register extends React.Component {
             Buscar resultados
           </button>
         </form>
-        <Link to="/">Voltar para Home</Link>
-        {this.state.shouldRedirect === true ? <Redirect to="/results"/> : null}
+        <footer>
+          <Link to="/">Voltar para Home</Link>
+        </footer>
+        {this.state.shouldRedirect === true ? <Redirect to="/results" /> : null}
       </div>
     );
   }
